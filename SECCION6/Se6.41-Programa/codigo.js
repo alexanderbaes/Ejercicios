@@ -1,15 +1,17 @@
 function main(){
 
     alert("Factorial de un numero: ");
-    let valor =prompt("Ingresa el numero: ");
+    let valor =Number(prompt("Ingresa el numero: "));
 
 
     try {
-        valor = parseInt(valor);
-
+        if(isNaN(valor)){
+            throw "<h1>DEBES INGRESAR UN NUMERO ENTERO</h1>"
+        }
+        
     } catch (error) {
-        document.write("<h1>DEBES INGRESAR UN NUMERO ENTERO</h1>");
-        return main();
+        document.write(error);
+        return;
         
     }
     
