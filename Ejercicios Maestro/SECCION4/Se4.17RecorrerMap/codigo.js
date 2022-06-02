@@ -4,8 +4,8 @@ let a= {
     "ana": 4,
     "carlos": 9,
     "ulises": 5,
-    "adan": 10
-} 
+    "adan": 10,
+}   
 
 console.log(a)
 
