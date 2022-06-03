@@ -21,9 +21,13 @@ function mergesort(v,left,right){
         mergesort(v, Math.floor((right + left) / 2),right);//aca se ordena mitad hasta la derecha
         merge(v,left,Math.floor((right + left) /2),right);//aqui se funciona el vector;
     } else if (right - left === 2 && v[left] > v[right - 1]) {
-        let tamp = v[left];
+        /* let tamp = v[left];
+        console.log(tamp, v[right-1]);
         v[left] = v[right - 1];
-        v[right - 1] = tamp;
+        v[right - 1] = tamp; */
+        
+        [v[left], v[right - 1]]=[ v[right - 1],v[left]] //esto intercambia las posiciones
+
     }
 }
 
