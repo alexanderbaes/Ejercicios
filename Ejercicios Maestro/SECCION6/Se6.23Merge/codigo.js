@@ -1,44 +1,33 @@
-function merge(v, left,medio,right){
-    let tamañov = right - left  + 1; //de aqui sacamos el tamaño del vector
-    let aux = [tamañov];
+function merge2(v,left,mitad,right){
     let i = left; //secuencia para el vector de la izquierda
-    let j = medio+1;//secuencia para el vector de la derecha
-    let kaux = 0; // vector auxiliar - parametro
-    while(i <= medio && j <= right){
-        if(v[i] <= v[j]){
-            aux[k] = v[i];
-            ++i;
-        }else{
-            aux[k] = v[j];
-            ++j;
+    let j = mitad;//secuencia para el vector de la derecha
+    let aux = [];
+    while(mitad > i || right > j){ 
+        if(i < mitad && j < right){
+            v[i] < v[j] ? aux.push(v[i++]) : aux.push(v[j++]); 
+        }else {
+            i < mitad ? aux.push(v[i++]) : aux.push(v[j++]);
         }
-        ++k;
     }
-    while(i <= medio){ // relleno aux con v[i] - vector de la izquierda
-        aux[k] = v[i];
-        ++k;
-        ++i;
-    }
-    while(j <= right){  // relleno aux con v[j] - vector de la derecha
-        aux[k] = v[j];
-        ++k;
-        ++j;
-    }
-    for(k = 0; k < tamañov; ++k){
-        v[left + k] = aux[k];
-    }
-
+    aux.forEach((a,b) => v[left + b] = a);
+   
 }
 
-function mergesort(v, left, right){
-    if(left < right){ // esto se cumpliera solo si derecha es mayor que izquierda
-        let mitad = (left + right) / 2; // aqui saco la posicion de la mitad 
-        mergesort(v,left,mitad);   // aca se ordena la primera mitad de izquierda hasta el medio
-        mergesort(v,mitad + 1,right); //aca se ordena la otra mitad de la mitad hasta la derecha
-        mergesort(v,left,mitad,right); //aqui se funciona el vector
-
-
+function mergesort2(v,left,right){
+    left = left === undefined ? 0 : left;
+    right = right === undefined ? v.length : right;
+    if(right < left > 2){ // esto se cumpliera solo si derecha es mayor que izquierda
+        mergesort(v,left, Math.floor((right + left) / 2));//aca se ordena izquierda hasta la mitad
+        mergesort(v, Math.floor((right + left) / 2),right);//aca se ordena mitad hasta la derecha
+        merge(v,left,Math.floor((right + left) /2),right);//aqui se funciona el vector;
+    } else if (right - left === 2 && v[left] > v[right - 1]) {
+        let tamp = v[left];
+        v[left] = v[right - 1];
+        v[right - 1] = tamp;
     }
 }
 
-let vector = [12,15,4,2,3,5];
+let arregloprueba = [50,40,25,70,2,4,3,8];
+console.log("vector antes de arreglar: " + arregloprueba);
+mergeSort(arregloprueba)
+console.log("vector despues de arreglar: " + arregloprueba);
