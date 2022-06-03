@@ -20,15 +20,10 @@ function selection_sort(v){
     return v
 }
 
+let california = [50,16,27,350,8,1]
+console.log("Vector sin ordenar: " + california)
 
-let n = Number(prompt("Ingresar  vector"));
-let california = new Array(n);
-console.log(california);
-console.log(selection_sort(california));
-
-/* let n = Number(prompt("Ingresar  vector"));
-let california = [n];
-console.log(california); */
+console.log("Vector Ordenado: " + selection_sort(california));
 
 
 
