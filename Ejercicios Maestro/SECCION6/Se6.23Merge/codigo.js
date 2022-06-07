@@ -18,15 +18,15 @@ function mergesort(v,left,right){
     right = right === undefined ? v.length : right;
     if(right - left > 2){ // esto se cumpliera solo si derecha es mayor que izquierda
         mergesort(v,left, Math.floor((right + left) / 2));//aca se ordena izquierda hasta la mitad
-        mergesort(v, Math.floor((right + left) / 2),right);//aca se ordena mitad hasta la derecha
-        merge(v,left,Math.floor((right + left) /2),right);//aqui se funciona el vector;
+        mergesort(v, Math.floor((right + left) / 2), right);//aca se ordena mitad hasta la derecha
+        merge(v,left,Math.floor((right + left) /2), right);//aqui se funciona el vector;
     } else if (right - left === 2 && v[left] > v[right - 1]) {
         /* let tamp = v[left];
         console.log(tamp, v[right-1]);
         v[left] = v[right - 1];
         v[right - 1] = tamp; */
         
-        [v[left], v[right - 1]]=[ v[right - 1],v[left]] //esto intercambia las posiciones
+        [v[left], v[right - 1]] = [v[right - 1], v[left]] //esto intercambia las posiciones
 
     }
 }
