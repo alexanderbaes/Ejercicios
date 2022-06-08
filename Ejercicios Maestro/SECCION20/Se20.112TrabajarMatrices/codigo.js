@@ -1,17 +1,25 @@
 
-let f = Number(prompt("Escrinir Numero de filas: "));
-let c = Number(prompt("Escrinir Numero de columnas: "));
+let f = prompt("Escrinir Numero de filas: ");
+let c = prompt("Escrinir Numero de columnas: ");
+let matriz = new Array(f);
 
-let matriz = new Array(f , new Array(c));
+for(let i = 0; i < f; i++){ 
+    matriz[i] = new Array(c);
+    for(let j = 0; j < c; j++){
+        matriz[i][j] = prompt("Escribir valores de la matriz")
 
-for(let i = 0; i < f.length; i++){
-    for(let j = 0; j < c.length; c++){
-        matriz[i][j] = prompt("digitar valores de la matriz: ")
     }
 }
 
-for(let i = 0;i < f.length; i++){
-    for(let j = 0; j < c.length; j++){
-        console.log(matriz[i][j]);
+for(let i = 0;i < f; i++){ 
+    
+    for(let j = 0; j < c; j++){
+        document.write(matriz[i][j]);   
+
     }
+    document.write("<br>")
+   
 }
+
+
+

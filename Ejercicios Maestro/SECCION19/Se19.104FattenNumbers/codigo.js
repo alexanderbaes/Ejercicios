@@ -1,4 +1,6 @@
 //FATTEN NUMBERS
+
+
 function maximo(a,b){
     if(a >= b){
         return a;
@@ -23,8 +25,8 @@ function fattenum(x){
 }
 
 
-while(x = prompt("Digite un numero: ") ){
-    alert("El fatten numbers de : " +x+ " es: " + fattenum(x));
+while(a = prompt("Digite un numero: ") ){
+    alert("El fatten numbers de : " +a+ " es: " + fattenum(a));
 }
 
 
