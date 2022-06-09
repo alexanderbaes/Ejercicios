@@ -9,6 +9,7 @@ let b = prompt("Ingresar segundo time: ");
 
 let lapso = time_lapse(a,b);
 let cierto = true;
+
 let c = Number(prompt("ingreso de otro time: "));
 
 while(c != -1 && cierto){
