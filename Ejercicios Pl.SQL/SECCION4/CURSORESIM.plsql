@@ -1,0 +1,24 @@
+DECLARE
+v_cantidad NUMBER;
+v_afecto BOOLEAN;
+v_afecto_txt VARCHAR(25); 
+
+BEGIN
+
+UPDATE EMPLOYEES E
+SET E.SALARY = E.SALARY*1.5
+WHERE E.DEPARTMENT_ID = 20;
+
+v_cantidad := SQL%rowcount; -- PARA VER LA CANTIDAD DE FILAS AFECTADAS
+v_afecto := SQL%found; -- ESTO DEVUELVE SI SE AFECTO O NO TRUE O FALSE
+--SE USA EL CASE PORQUE NO SE PUEDE MOSTRAR VALOR BOOLEAN
+CASE v_afecto 
+--ALMACENAMOS EL RESULTADO EN LA VARIABLE DE TEXTO
+WHEN TRUE THEN v_afecto_txt := 'SI'; 
+WHEN FALSE THEN v_afecto_txt := 'NO';
+END CASE;
+
+DBMS_OUTPUT.PUT_LINE('Se afectaron filas? ' || v_afecto_txt);
+DBMS_OUTPUT.PUT_LINE('Cantidad de filas afectadas: ' || v_cantidad);
+
+END;
