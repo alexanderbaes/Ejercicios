@@ -34,7 +34,13 @@ VALUES (8,'Maria78',null,null);
 -------------------------------------------------------------------------------------
 
 
---Crear un trigger que vaya guardando un histórico de las opiniones editadas y borradas. Para ello, deberá crear un registro nuevo en la tabla de "opinion_historico". En el campo "opinión" se debe guardar el texto de la opinión ANTES de ser borrada/editada En el campo "acción" se debe indicar cuál fue la acción realizada sobre la opinión ("Editado" o "Borrado") En el campo "usuariomodificacion" se debe guardar el nombre del usuario que realizo el update/delete. Se puede obtener mediante la variable especial "USER" En el campo "fechamodificacion" se debe guardar la fecha en la que se realizó la acción.
+--Crear un trigger que vaya guardando un histórico de las opiniones editadas y borradas.
+--Para ello, deberá crear un registro nuevo en la tabla de "opinion_historico".
+--En el campo "opinión" se debe guardar el texto de la opinión ANTES de ser borrada/editada
+--En el campo "acción" se debe indicar cuál fue la acción realizada sobre la opinión ("Editado" o "Borrado")
+--En el campo "usuariomodificacion" se debe guardar el nombre del usuario que realizo el update/delete.
+--Se puede obtener mediante la variable especial "USER" En el campo "fechamodificacion"
+--se debe guardar la fecha en la que se realizó la acción.
 
 CREATE OR REPLACE TRIGGER guardar_historico_opinion AFTER
     DELETE OR UPDATE ON opinion
